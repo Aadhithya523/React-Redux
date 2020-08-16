@@ -1,13 +1,20 @@
-import React from 'react';
-import OuterWrapper from './Table/TableContents';
-import data from '../../EmployeeData.json';
+import React from "react";
+import OuterWrapper from "./Table/TableContents";
 class EmployeeDeatilesPage extends React.Component {
-    render() {
-        return (
-            <div>
-                <OuterWrapper data={data} />
-            </div>
-        );
-    }
+  constructor(props) {
+    super(props);
+    this.props.getEmployees(0, 3);
+  }
+
+  render() {
+    return (
+      <div>
+        <OuterWrapper
+          data={this.props.employeeList}
+          getEmployee={this.props.getEmployees}
+        />
+      </div>
+    );
+  }
 }
 export default EmployeeDeatilesPage;
